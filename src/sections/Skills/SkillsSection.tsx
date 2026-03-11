@@ -4,6 +4,7 @@ import StaggerChildren from '../../components/motion/StaggerChildren';
 import { sectionStagger, springSoft, staggerItem } from '../../lib/motion';
 import { skillsData } from '../../content/portfolioMock';
 import SectionContainer from '../../components/common/SectionContainer';
+import SectionHeader from '../../components/common/SectionHeader';
 import type { SkillItem } from '../../types/portfolio';
 
 type TabId = 'hard' | 'soft';
@@ -54,14 +55,7 @@ const SkillsSection = () => {
   return (
     <SectionContainer id="skills" className="pb-20 md:pb-28">
       <div className="space-y-6">
-        <div className="space-y-1">
-          <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-accent">
-            {skillsData.sectionTitle}
-          </p>
-          <h2 className="max-w-3xl font-display text-2xl leading-tight text-text md:text-4xl">
-            {skillsData.sectionTitle}
-          </h2>
-        </div>
+        <SectionHeader label={skillsData.sectionTitle} title={skillsData.sectionTitle} />
 
         <div className="flex gap-1 border-b border-border/50" role="tablist" aria-label="Skills category">
           <div className="relative">
