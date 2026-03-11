@@ -1,0 +1,15 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aboutBg" x1="0" y1="0" x2="900" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6A5AF9"/>
+      <stop offset="1" stop-color="#00D4FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" rx="40" fill="#0B1222"/>
+  <rect width="900" height="900" rx="40" fill="url(#aboutBg)" fill-opacity="0.24"/>
+  <circle cx="450" cy="330" r="150" fill="white" fill-opacity="0.32"/>
+  <rect x="250" y="510" width="400" height="220" rx="26" fill="white" fill-opacity="0.28"/>
+  <rect x="295" y="560" width="310" height="14" rx="7" fill="white" fill-opacity="0.55"/>
+  <rect x="295" y="605" width="240" height="14" rx="7" fill="white" fill-opacity="0.42"/>
+  <text x="450" y="830" text-anchor="middle" fill="white" fill-opacity="0.78" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">ABOUT PLACEHOLDER</text>
+</svg>
