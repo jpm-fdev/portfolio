@@ -1,4 +1,4 @@
-import type { AboutData, HeroData, SkillsData } from '../types/portfolio';
+import type { AboutData, ContactData, HeroData, SkillsData } from '../types/portfolio';
 
 export const heroData: HeroData = {
   badge: 'Lorem ipsum dolor sit amet',
@@ -43,5 +43,16 @@ export const skillsData: SkillsData = {
     { id: 'ss-1', title: 'Lorem Ipsum', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.', level: 2, icon: 'team' },
     { id: 'ss-2', title: 'Sit Amet', description: 'Sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.', level: 3, icon: 'lead' },
     { id: 'ss-3', title: 'Elit Sed', description: 'Elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.', level: 1, icon: 'communicate' },
+  ],
+};
+
+export const contactData: ContactData = {
+  sectionTitle: 'Contact',
+  sectionLead: 'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  items: [
+    { id: 'contact-email', type: 'email', label: 'Email', value: 'lorem@ipsum.dev', href: 'mailto:lorem@ipsum.dev' },
+    { id: 'contact-github', type: 'github', label: 'GitHub', value: 'github.com/lorem-ipsum', href: 'https://github.com/lorem-ipsum' },
+    { id: 'contact-linkedin', type: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/lorem-ipsum', href: 'https://linkedin.com/in/lorem-ipsum' },
+    { id: 'contact-location', type: 'location', label: 'Location', value: 'Lorem City, Ipsum' },
   ],
 };

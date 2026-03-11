@@ -1,5 +1,6 @@
 import { ReactLenis } from 'lenis/react';
 import AboutExperienceSection from './sections/AboutExperience/AboutExperienceSection';
+import ContactSection from './sections/Contact/ContactSection';
 import HeroSection from './sections/Hero/HeroSection';
 import SkillsSection from './sections/Skills/SkillsSection';
 
@@ -11,6 +12,7 @@ const App = () => (
       <HeroSection />
       <AboutExperienceSection />
       <SkillsSection />
+      <ContactSection />
     </main>
   </ReactLenis>
 );

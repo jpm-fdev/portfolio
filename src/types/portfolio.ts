@@ -9,3 +9,7 @@ export type AboutData = { sectionTitle: string; sectionLead: string; aboutTitle:
 export type SkillItem = { id: string; title: string; description: string; level: 1 | 2 | 3; icon: string };
 
 export type SkillsData = { sectionTitle: string; hardSkills: SkillItem[]; softSkills: SkillItem[] };
+
+export type ContactItem = { id: string; type: 'email' | 'github' | 'linkedin' | 'location'; label: string; value: string; href?: string };
+
+export type ContactData = { sectionTitle: string; sectionLead?: string; items: ContactItem[] };
