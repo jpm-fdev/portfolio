@@ -34,14 +34,14 @@ export const aboutExperienceData: AboutData = {
 export const skillsData: SkillsData = {
   sectionTitle: 'Skills & Proficiencies',
   hardSkills: [
-    { id: 'hs-1', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.', level: 3 },
-    { id: 'hs-2', description: 'Dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna.', level: 2 },
-    { id: 'hs-3', description: 'Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', level: 1 },
-    { id: 'hs-4', description: 'Adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.', level: 2 },
+    { id: 'hs-1', title: 'Lorem Ipsum', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.', level: 3, icon: 'code' },
+    { id: 'hs-2', title: 'Dolor Sit', description: 'Dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna.', level: 2, icon: 'database' },
+    { id: 'hs-3', title: 'Consectetur', description: 'Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', level: 1, icon: 'server' },
+    { id: 'hs-4', title: 'Adipisicing', description: 'Adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.', level: 2, icon: 'api' },
   ],
   softSkills: [
-    { id: 'ss-1', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.', level: 2 },
-    { id: 'ss-2', description: 'Sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.', level: 3 },
-    { id: 'ss-3', description: 'Elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.', level: 1 },
+    { id: 'ss-1', title: 'Lorem Ipsum', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.', level: 2, icon: 'team' },
+    { id: 'ss-2', title: 'Sit Amet', description: 'Sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.', level: 3, icon: 'lead' },
+    { id: 'ss-3', title: 'Elit Sed', description: 'Elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.', level: 1, icon: 'communicate' },
   ],
 };

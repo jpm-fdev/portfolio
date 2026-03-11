@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import { FiCode, FiDatabase, FiServer, FiCpu, FiUsers, FiTarget, FiMessageCircle } from 'react-icons/fi';
 import StaggerChildren from '../../components/motion/StaggerChildren';
 import { sectionStagger, springSoft, staggerItem } from '../../lib/motion';
 import { skillsData } from '../../content/portfolioMock';
@@ -9,7 +10,17 @@ import type { SkillItem } from '../../types/portfolio';
 
 type TabId = 'hard' | 'soft';
 
-const GRID_CLASS = 'grid gap-4 sm:grid-cols-2 lg:grid-cols-3';
+const GRID_CLASS = 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3';
+
+const SKILL_ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  code: FiCode,
+  database: FiDatabase,
+  server: FiServer,
+  api: FiCpu,
+  team: FiUsers,
+  lead: FiTarget,
+  communicate: FiMessageCircle,
+};
 
 const LevelBar = ({ level }: { level: SkillItem['level'] }) => (
   <div className="flex gap-1" role="presentation" aria-hidden>
@@ -26,17 +37,26 @@ const LevelBar = ({ level }: { level: SkillItem['level'] }) => (
   </div>
 );
 
-const SkillCard = ({ skill }: { skill: SkillItem }) => (
-  <motion.div
-    variants={staggerItem}
-    whileHover={{ y: -1 }}
-    transition={springSoft}
-    className="rounded-xl border border-border/50 bg-panel/60 px-4 py-4"
-  >
-    <p className="mb-3 text-sm leading-relaxed text-muted">{skill.description}</p>
-    <LevelBar level={skill.level} />
-  </motion.div>
-);
+const SkillCard = ({ skill }: { skill: SkillItem }) => {
+  const Icon = SKILL_ICON_MAP[skill.icon] ?? FiCode;
+  return (
+    <motion.div
+      variants={staggerItem}
+      whileHover={{ y: -1 }}
+      transition={springSoft}
+      className="rounded-xl border border-border/50 bg-panel/60 p-5"
+    >
+      <div className="mb-4 flex items-center gap-2">
+        <Icon className="text-accent" />
+        <h3 className="font-display text-base font-semibold text-text">{skill.title}</h3>
+      </div>
+      <p className="mb-4 min-h-[4.5rem] text-base leading-relaxed text-muted">
+        {skill.description}
+      </p>
+      <LevelBar level={skill.level} />
+    </motion.div>
+  );
+};
 
 const SkillsSection = () => {
   const [activeTab, setActiveTab] = useState<TabId>('hard');
@@ -54,7 +74,7 @@ const SkillsSection = () => {
 
   return (
     <SectionContainer id="skills" className="pb-20 md:pb-28">
-      <div className="space-y-6">
+      <div className="space-y-10">
         <SectionHeader label={skillsData.sectionTitle} title={skillsData.sectionTitle} />
 
         <div className="flex gap-1 border-b border-border/50" role="tablist" aria-label="Skills category">
@@ -66,7 +86,7 @@ const SkillsSection = () => {
               tabIndex={activeTab === 'hard' ? 0 : -1}
               onClick={() => setActiveTab('hard')}
               onKeyDown={(e) => handleKeyDown(e, 'hard')}
-              className={`rounded-t px-3 py-2 text-xs font-medium tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'hard' ? 'text-accent' : 'text-muted hover:text-text'}`}
+              className={`rounded-t px-4 py-2.5 text-sm font-medium tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'hard' ? 'text-accent' : 'text-muted hover:text-text'}`}
             >
               Hard Skills
             </button>
@@ -86,7 +106,7 @@ const SkillsSection = () => {
               tabIndex={activeTab === 'soft' ? 0 : -1}
               onClick={() => setActiveTab('soft')}
               onKeyDown={(e) => handleKeyDown(e, 'soft')}
-              className={`rounded-t px-3 py-2 text-xs font-medium tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'soft' ? 'text-accent' : 'text-muted hover:text-text'}`}
+              className={`rounded-t px-4 py-2.5 text-sm font-medium tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'soft' ? 'text-accent' : 'text-muted hover:text-text'}`}
             >
               Soft Skills
             </button>

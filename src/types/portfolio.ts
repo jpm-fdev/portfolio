@@ -6,6 +6,6 @@ export type ExperienceItem = { id: string; role: string; period: string; company
 
 export type AboutData = { sectionTitle: string; sectionLead: string; aboutTitle: string; aboutBody: string; aboutImage: string; aboutImageAlt: string; experienceTitle: string; experiences: ExperienceItem[] };
 
-export type SkillItem = { id: string; description: string; level: 1 | 2 | 3 };
+export type SkillItem = { id: string; title: string; description: string; level: 1 | 2 | 3; icon: string };
 
 export type SkillsData = { sectionTitle: string; hardSkills: SkillItem[]; softSkills: SkillItem[] };
