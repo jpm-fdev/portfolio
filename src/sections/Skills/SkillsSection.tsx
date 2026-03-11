@@ -131,6 +131,7 @@ const SkillsSection = () => {
               <StaggerChildren
                 key={activeTab}
                 variants={sectionStagger}
+                viewportTrigger
                 className={GRID_CLASS}
               >
                 {skills.map((skill) => (
