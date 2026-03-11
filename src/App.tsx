@@ -1,6 +1,7 @@
 import { ReactLenis } from 'lenis/react';
 import AboutExperienceSection from './sections/AboutExperience/AboutExperienceSection';
 import HeroSection from './sections/Hero/HeroSection';
+import SkillsSection from './sections/Skills/SkillsSection';
 
 const lenisOptions = { smoothWheel: true, lerp: 0.08, autoRaf: true };
 
@@ -9,6 +10,7 @@ const App = () => (
     <main className="min-h-screen bg-surface text-text">
       <HeroSection />
       <AboutExperienceSection />
+      <SkillsSection />
     </main>
   </ReactLenis>
 );
