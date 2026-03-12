@@ -69,10 +69,10 @@ const ContactCard = ({ item }: { item: ContactItem }) => {
 
 const ContactSection = () => (
   <SectionContainer id="contact" className="pb-24 md:pb-32">
-    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20 items-stretch">
       
       {/* Left Column: Text & CTA */}
-      <div className="space-y-10">
+      <div className="flex h-full flex-col justify-between gap-10">
         <SectionHeader
           label="Get In Touch"
           title={contactData.sectionTitle}
