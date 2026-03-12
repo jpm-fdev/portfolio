@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RiMenu4Line, RiCloseLine } from 'react-icons/ri';
 
 const NAV_LINKS = [
-  { label: 'Home', href: '#hero' },
+  { label: 'Top', href: '#top' },
   { label: 'Experience', href: '#experience-about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
@@ -26,9 +26,16 @@ const Navbar = () => {
     e.preventDefault();
     setIsOpen(false);
     
+    if (href === '#top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      const offset = 100; // Offset spacing for fixed navbar
+      const y = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
@@ -51,10 +58,10 @@ const Navbar = () => {
           >
             {/* Logo */}
             <a 
-              href="#hero" 
-              onClick={(e) => handleLinkClick(e, '#hero')}
+              href="#top" 
+              onClick={(e) => handleLinkClick(e, '#top')}
               className="text-lg font-display font-semibold tracking-tight text-text z-10 hover:text-accent transition-colors duration-300"
-              aria-label="Juan Pablo Medina - Home"
+              aria-label="Juan Pablo Medina - Top"
             >
               JM<span className="text-accent">.</span>
             </a>
