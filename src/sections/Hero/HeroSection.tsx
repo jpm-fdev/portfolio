@@ -22,107 +22,135 @@ const HeroSection = () => {
   const [isCtaHovered, setIsCtaHovered] = useState(false);
 
   return (
-  <SectionContainer id="hero" className="relative overflow-hidden py-20 md:py-28">
-    <StaggerChildren
-          variants={heroStagger}
-          className="rounded-3xl border border-border/60 bg-hero p-7 shadow-glow md:p-12"
-        >
-          <div className="grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
-            <div className="space-y-8">
-              <motion.span
-                variants={staggerItem}
-                className="inline-flex rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent"
-              >
+    <SectionContainer id="hero" className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28">
+      <StaggerChildren
+        variants={heroStagger}
+        className="relative z-10 mx-auto w-full max-w-7xl rounded-[2.5rem] border border-border/40 bg-panel/30 p-6 shadow-2xl backdrop-blur-xl sm:p-10 md:p-14 lg:p-16"
+      >
+        {/* Glow behind the hero card itself */}
+        <div className="pointer-events-none absolute inset-0 -z-10 rounded-[2.5rem] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)]" />
+
+        <div className="grid items-center gap-16 lg:grid-cols-[1.2fr_0.8fr]">
+          
+          {/* Left Column: Content */}
+          <div className="space-y-10">
+            {/* Badge */}
+            <motion.div variants={staggerItem} className="flex">
+              <span className="inline-flex items-center gap-3 rounded-full border border-accent/20 bg-accent/5 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-accent backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+                </span>
                 {heroData.badge}
-              </motion.span>
-              <motion.div variants={staggerItem} className="space-y-5">
-                <h1 className="max-w-2xl font-display text-4xl leading-[1.05] text-text md:text-6xl">
-                  {heroData.title}
-                </h1>
-                <p className="max-w-xl text-base leading-relaxed text-muted md:text-lg">
-                  {heroData.description}
-                </p>
-              </motion.div>
-              <motion.div variants={staggerItem} className="flex flex-wrap gap-3">
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  onHoverStart={() => setIsCtaHovered(true)}
-                  onHoverEnd={() => setIsCtaHovered(false)}
-                  className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-                  aria-label={heroData.primaryCta}
-                >
-                  {heroData.primaryCta}
-                  <motion.span
-                    className="inline-flex"
-                    initial="idle"
-                    animate={isCtaHovered ? 'hover' : 'idle'}
-                    variants={arrowHoverVariants}
-                  >
-                    <FiArrowRight className="text-base" />
-                  </motion.span>
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-panel/70 px-5 py-3 text-sm font-semibold text-text transition hover:bg-panel focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-                  aria-label={heroData.secondaryCta}
-                >
-                  {heroData.secondaryCta}
-                </motion.button>
-              </motion.div>
-              <motion.div variants={staggerItem} className="grid gap-3 sm:grid-cols-3">
-                {heroData.stats.map((stat) => (
-                  <motion.div
-                    key={stat.id}
-                    whileHover={{
-                      y: -3,
-                      boxShadow: '0 12px 28px rgb(0 0 0 / 0.12)',
-                      transition: springSoft,
-                    }}
-                    className="rounded-xl border border-border/70 bg-panel/75 p-4"
-                  >
-                    <p className="text-2xl font-display font-semibold text-text">{stat.value}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.12em] text-muted">
-                      {stat.label}
-                    </p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-            <div className="space-y-4">
-              <motion.div
-                variants={staggerItem}
-                className="overflow-hidden rounded-2xl border border-border/75 shadow-glow"
+              </span>
+            </motion.div>
+
+            {/* Title & Description */}
+            <motion.div variants={staggerItem} className="space-y-6">
+              <h1 className="max-w-2xl font-display text-4xl font-semibold leading-[1.1] tracking-tight bg-gradient-to-br from-text via-text to-text/60 bg-clip-text text-transparent sm:text-5xl md:text-6xl lg:text-[4.2rem]">
+                {heroData.title}
+              </h1>
+              <p className="max-w-xl text-lg leading-relaxed text-muted md:text-xl font-light">
+                {heroData.description}
+              </p>
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onHoverStart={() => setIsCtaHovered(true)}
+                onHoverEnd={() => setIsCtaHovered(false)}
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-[0_0_20px_rgb(var(--color-accent)_/_0.3)] transition-all hover:shadow-[0_0_30px_rgb(var(--color-accent)_/_0.5)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                aria-label={heroData.primaryCta}
               >
-                <motion.img
-                  src={heroData.image}
-                  alt={heroData.imageAlt}
-                  whileHover={{ scale: 1.02 }}
-                  transition={springSoft}
-                  className="h-[23rem] w-full object-cover md:h-[27rem]"
-                />
-              </motion.div>
-              <motion.div variants={staggerItem} className="grid grid-cols-2 gap-3">
-                {heroData.tags.map((tag, index) => {
-                  const Icon = iconMap[index % iconMap.length];
-                  return (
-                    <motion.span
-                      key={tag}
-                      whileHover={{ scale: 1.02 }}
-                      transition={springSoft}
-                      className="inline-flex items-center gap-2 rounded-xl border border-border/70 bg-panel/70 px-3 py-2 text-sm text-muted"
-                    >
-                      <Icon className="text-accent" />
-                      {tag}
-                    </motion.span>
-                  );
-                })}
-              </motion.div>
-            </div>
+                <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
+                  <div className="relative h-full w-8 bg-white/20" />
+                </div>
+                <span className="relative">{heroData.primaryCta}</span>
+                <motion.span
+                  className="relative inline-flex"
+                  initial="idle"
+                  animate={isCtaHovered ? 'hover' : 'idle'}
+                  variants={arrowHoverVariants}
+                >
+                  <FiArrowRight className="text-lg" />
+                </motion.span>
+              </motion.button>
+              
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 rounded-2xl border border-border/80 bg-panel/50 px-6 py-3.5 text-sm font-semibold text-text backdrop-blur-md transition hover:bg-panel focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                aria-label={heroData.secondaryCta}
+              >
+                {heroData.secondaryCta}
+              </motion.button>
+            </motion.div>
+
+            {/* Stats */}
+            <motion.div variants={staggerItem} className="grid grid-cols-2 gap-4 sm:grid-cols-3 pt-4 border-t border-border/30">
+              {heroData.stats.map((stat) => (
+                <motion.div
+                  key={stat.id}
+                  whileHover={{
+                    y: -4,
+                    transition: springSoft,
+                  }}
+                  className="group flex flex-col justify-center rounded-2xl border border-border/40 bg-surface/40 p-5 backdrop-blur-sm transition-all hover:border-accent/40 hover:bg-surface/80"
+                >
+                  <p className="font-display text-3xl font-bold bg-gradient-to-br from-text to-text/50 bg-clip-text text-transparent transition-colors group-hover:from-accent group-hover:to-accentSoft">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1.5 text-xs font-medium uppercase tracking-widest text-muted">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-    </StaggerChildren>
-  </SectionContainer>
+
+          {/* Right Column: Media & Tags */}
+          <div className="space-y-6">
+            {/* Image Container with Glow Effect */}
+            <motion.div
+              variants={staggerItem}
+              className="group relative overflow-hidden rounded-[2rem] border border-border/50 shadow-2xl"
+            >
+              {/* Overlay gradient on image */}
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-panel/60 via-transparent to-transparent opacity-60 mix-blend-multiply transition-opacity group-hover:opacity-20" />
+              
+              <motion.img
+                src={heroData.image}
+                alt={heroData.imageAlt}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="h-[28rem] w-full object-cover sm:h-[32rem] lg:h-[36rem]"
+              />
+            </motion.div>
+
+            {/* Floating Tags */}
+            <motion.div variants={staggerItem} className="flex flex-wrap justify-center gap-2.5 lg:justify-start">
+              {heroData.tags.map((tag, index) => {
+                const Icon = iconMap[index % iconMap.length];
+                return (
+                  <motion.span
+                    key={tag}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    transition={springSoft}
+                    className="inline-flex cursor-default items-center gap-2 rounded-full border border-border/60 bg-panel/60 px-4 py-2.5 text-xs font-medium text-text shadow-sm backdrop-blur-md transition-colors hover:border-accent/50 hover:text-accent"
+                  >
+                    <Icon className="text-accent text-sm" />
+                    {tag}
+                  </motion.span>
+                );
+              })}
+            </motion.div>
+          </div>
+        </div>
+      </StaggerChildren>
+    </SectionContainer>
   );
 };
 
