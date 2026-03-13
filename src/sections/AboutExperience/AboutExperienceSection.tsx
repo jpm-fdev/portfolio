@@ -53,7 +53,7 @@ const AboutExperienceSection = () => (
                 <img
                   src={experience.image}
                   alt={experience.imageAlt}
-                  className='h-36 w-full rounded-xl border border-border/70 object-cover sm:h-full'
+                  className='h-36 w-full shrink-0 self-center rounded-xl border border-border/70 object-cover sm:h-48'
                 />
                 <div className='space-y-3'>
                   <div className='flex flex-wrap items-center gap-3'>

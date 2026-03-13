@@ -38,14 +38,21 @@ export const aboutExperienceData: AboutData = {
       period: '2023 - Present',
       company: 'Litebox',
       summary:
-        'Additionally to having contributed to multiple challenging projects and clients, I built and currently maintain tools and bots for internal management and use, fully integrated with AI.',
+        'Participated or lead several projects of multiple types and challenges within large multi-role teams with structured workflows.',
       achievements: [
-        'Fully developed an AI-powered Slack bot to collect and summarize daily standups for the whole company.',
+        'Fully developed an AI-powered Slack bot to collect and summarize daily standups for the whole company. Saves data, includes a RAG and exposes commands to view metrics and AI-processed insights.',
         'Contributed to build several marketing sites with complex UI and motion side-to-side with designers.',
         'Single-handledly lead a difficult-customer project to keep progress and satisfaction.',
         'Lead the implementation of a client Portal for invoices and metrics.',
       ],
-      stack: ['React', 'Node', 'PostgreSQL'],
+      stack: [
+        'Next & Vercel',
+        'AI Integration',
+        'Motion libraries',
+        'Optimization',
+        'n8n & trigger.dev',
+        'Supabase',
+      ],
       image: '/placeholders/experience-card-default.svg',
       imageAlt: 'Lorem ipsum experience placeholder one',
     },
@@ -54,7 +61,8 @@ export const aboutExperienceData: AboutData = {
       role: 'Web & Mobile Developer',
       period: '2020 - 2023',
       company: 'Sana Digital',
-      summary: 'Built a fully operational online-consultations platform from scratch',
+      summary:
+        'Built a fully operational online-consultations platform from scratch in a dynamic working environment.',
       achievements: [
         'Built an appealing UI in collaboration with a designer.',
         'Developed a full management dashboard for professionals and administration.',
