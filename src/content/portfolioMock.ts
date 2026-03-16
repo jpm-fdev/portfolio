@@ -96,35 +96,59 @@ export const skillsData: SkillsData = {
   hardSkills: [
     {
       id: 'hs-1',
-      title: 'Lorem Ipsum',
+      title: 'React & Next.js',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.',
+        '5 years into the React ecosystem, the flow feels intuitive. I know how to maximize its potential and avoid its usual technical debts.',
       level: 3,
-      icon: 'code',
+      icon: 'react',
     },
     {
       id: 'hs-2',
-      title: 'Dolor Sit',
+      title: 'CSS & Tailwind',
       description:
-        'Dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna.',
+        'I can build top-tier interfaces at high speed. Tailwind is my go-to framework for creating clean, modern, and highly efficient UIs.',
+      level: 3,
+      icon: 'layout',
+    },
+    {
+      id: 'hs-3',
+      title: 'UI Libraries',
+      description:
+        'Components (Chakra, shadcn), motion (Framer Motion, GSAP), state and forms (React Query, Lenis), etc. I’ve integrated dozens of libraries.',
+      level: 3,
+      icon: 'box',
+    },
+    {
+      id: 'hs-4',
+      title: 'Performance & SEO',
+      description:
+        'I strive for top-tier Performance & SEO scores while balancing high-quality output with efficient development cycles',
+      level: 3,
+      icon: 'zap',
+    },
+    {
+      id: 'hs-5',
+      title: 'Automation Tools',
+      description:
+        'I leverage n8n, Supabase, trigger.dev and others to build quick automated flows with data persistence.',
+      level: 3,
+      icon: 'settings',
+    },
+    {
+      id: 'hs-6',
+      title: 'Databases',
+      description:
+        'PostgreSQL is my core strength. I’ve built and managed multiple databases, ensuring data integrity and scalability at every step.',
       level: 2,
       icon: 'database',
     },
     {
-      id: 'hs-3',
-      title: 'Consectetur',
+      id: 'hs-7',
+      title: 'Other frameworks',
       description:
-        'Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      level: 1,
-      icon: 'server',
-    },
-    {
-      id: 'hs-4',
-      title: 'Adipisicing',
-      description:
-        'Adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.',
+        'React.js is my core expertise, but I’m also proficient in Vue, Solid, Svelte, Astro and even pure JS with HTML.',
       level: 2,
-      icon: 'api',
+      icon: 'terminal',
     },
   ],
   softSkills: [
