@@ -91,7 +91,7 @@ export const aboutExperienceData: AboutData = {
 };
 
 export const skillsData: SkillsData = {
-  sectionLabel: 'Skills & Proficiencies',
+  sectionLabel: 'Skills & How I Work',
   sectionTitle: 'Know my strengths',
   hardSkills: [
     {
@@ -128,6 +128,14 @@ export const skillsData: SkillsData = {
     },
     {
       id: 'hs-5',
+      title: 'Backend & APIs',
+      description:
+        'I develop highly practical and efficient APIs with Nest.js, Express, and Next.js to connect data and the UI.',
+      level: 3,
+      icon: 'terminal',
+    },
+    {
+      id: 'hs-6',
       title: 'Automation Tools',
       description:
         'I leverage n8n, Supabase, trigger.dev and others to build quick automated flows with data persistence.',
@@ -135,7 +143,7 @@ export const skillsData: SkillsData = {
       icon: 'settings',
     },
     {
-      id: 'hs-6',
+      id: 'hs-7',
       title: 'Databases',
       description:
         'PostgreSQL is my core strength. I’ve built and managed multiple databases, ensuring data integrity and scalability at every step.',
@@ -143,37 +151,69 @@ export const skillsData: SkillsData = {
       icon: 'database',
     },
     {
-      id: 'hs-7',
+      id: 'hs-8',
       title: 'Other frameworks',
       description:
         'React.js is my core expertise, but I’m also proficient in Vue, Solid, Svelte, Astro and even pure JS with HTML.',
       level: 2,
-      icon: 'terminal',
+      icon: 'vue',
+    },
+    {
+      id: 'hs-9',
+      title: 'Testing',
+      description: 'I prioritize reliability through quick testing, using tools like Vitest for unit tests.',
+      level: 1,
+      icon: 'testing',
+    },
+    {
+      id: 'hs-10',
+      title: 'DevOps & CI/CD',
+      description:
+        'I manage automated deployment environments using Vercel and GitHub/GitLab, focusing on pre-configured pipelines for seamless and reliable production delivery.',
+      level: 1,
+      icon: 'refresh',
     },
   ],
   softSkills: [
     {
       id: 'ss-1',
-      title: 'Lorem Ipsum',
+      title: 'Ownership',
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt.',
-      level: 2,
-      icon: 'team',
+        "I aim to take responsibility for my tasks from start to finish, ensuring I meet objectives. I'm very independent and proactive, and can keep working and moving forward myself.",
+      level: 3,
+      icon: 'ownership',
     },
     {
       id: 'ss-2',
-      title: 'Sit Amet',
+      title: 'Problem Solving',
       description:
-        'Sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.',
+        'I try to focus on balanced solutions that respect both technical quality and project constraints, understanding that the best code is the one that delivers value on time.',
       level: 3,
-      icon: 'lead',
+      icon: 'problem-solving',
     },
     {
       id: 'ss-3',
-      title: 'Elit Sed',
-      description: 'Elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim.',
-      level: 1,
+      title: 'Communication',
+      description:
+        "I prioritize visibility by providing proactive status updates. I focus on direct communication when seeking clarification and don't hesitate to ask for help.",
+      level: 3,
       icon: 'communicate',
+    },
+    {
+      id: 'ss-4',
+      title: 'Adaptability & Growth',
+      description:
+        "I enjoy new challenges and can switch contexts quickly while maintaining momentum. I'm also committed to continuous learning.",
+      level: 3,
+      icon: 'growth',
+    },
+    {
+      id: 'ss-5',
+      title: 'Collaboration & Teamwork',
+      description:
+        'I value open feedback and collaborative environments. I believe that the best products are built through shared knowledge and supportive peer reviews.',
+      level: 3,
+      icon: 'team',
     },
   ],
 };

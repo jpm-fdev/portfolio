@@ -15,8 +15,13 @@ import {
   FiSettings,
   FiBox,
   FiSearch,
+  FiShield,
+  FiRefreshCw,
+  FiBriefcase,
+  FiTrendingUp,
+  FiTool,
 } from 'react-icons/fi';
-import { FaReact } from 'react-icons/fa';
+import { FaReact, FaVuejs } from 'react-icons/fa';
 import StaggerChildren from '../../components/motion/StaggerChildren';
 import { sectionStagger, springSoft, staggerItem } from '../../lib/motion';
 import { skillsData } from '../../content/portfolioMock';
@@ -44,6 +49,12 @@ const SKILL_ICON_MAP: Record<string, React.ComponentType<{ className?: string }>
   box: FiBox,
   search: FiSearch,
   react: FaReact,
+  vue: FaVuejs,
+  testing: FiShield,
+  refresh: FiRefreshCw,
+  ownership: FiBriefcase,
+  growth: FiTrendingUp,
+  'problem-solving': FiTool,
 };
 
 const LevelBar = ({ level }: { level: SkillItem['level'] }) => (
@@ -61,7 +72,7 @@ const LevelBar = ({ level }: { level: SkillItem['level'] }) => (
   </div>
 );
 
-const SkillCard = ({ skill }: { skill: SkillItem }) => {
+const SkillCard = ({ skill, showLevel = true }: { skill: SkillItem; showLevel?: boolean }) => {
   const Icon = SKILL_ICON_MAP[skill.icon] ?? FiCode;
   return (
     <motion.div
@@ -78,7 +89,7 @@ const SkillCard = ({ skill }: { skill: SkillItem }) => {
         </div>
         <p className='mb-6 text-base leading-relaxed text-muted'>{skill.description}</p>
       </div>
-      <LevelBar level={skill.level} />
+      {showLevel && <LevelBar level={skill.level} />}
     </motion.div>
   );
 };
@@ -118,7 +129,7 @@ const SkillsSection = () => {
               onClick={() => setActiveTab('hard')}
               onKeyDown={e => handleKeyDown(e, 'hard')}
               className={`rounded-t px-6 py-3.5 text-base font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'hard' ? 'text-accent' : 'text-muted hover:text-text'}`}>
-              Hard Skills
+              My Skills
             </button>
             {activeTab === 'hard' && (
               <motion.div
@@ -137,7 +148,7 @@ const SkillsSection = () => {
               onClick={() => setActiveTab('soft')}
               onKeyDown={e => handleKeyDown(e, 'soft')}
               className={`rounded-t px-6 py-3.5 text-base font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'soft' ? 'text-accent' : 'text-muted hover:text-text'}`}>
-              Soft Skills
+              How I Work
             </button>
             {activeTab === 'soft' && (
               <motion.div
@@ -152,7 +163,7 @@ const SkillsSection = () => {
         <div className='relative'>
           <div className={`invisible ${GRID_CLASS}`} aria-hidden>
             {maxSkills.map(skill => (
-              <SkillCard key={skill.id} skill={skill} />
+              <SkillCard key={skill.id} skill={skill} showLevel={activeTab === 'hard'} />
             ))}
           </div>
           <div className='absolute inset-0'>
@@ -163,7 +174,7 @@ const SkillsSection = () => {
                 viewportTrigger
                 className={GRID_CLASS}>
                 {skills.map(skill => (
-                  <SkillCard key={skill.id} skill={skill} />
+                  <SkillCard key={skill.id} skill={skill} showLevel={activeTab === 'hard'} />
                 ))}
               </StaggerChildren>
             </AnimatePresence>
