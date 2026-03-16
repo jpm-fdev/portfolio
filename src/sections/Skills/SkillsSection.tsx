@@ -29,7 +29,7 @@ import SectionContainer from '../../components/common/SectionContainer';
 import SectionHeader from '../../components/common/SectionHeader';
 import type { SkillItem } from '../../types/portfolio';
 
-type TabId = 'hard' | 'soft';
+type TabId = 'hard' | 'soft' | 'ai';
 
 const GRID_CLASS = 'grid gap-6 sm:grid-cols-2 lg:grid-cols-3';
 
@@ -55,6 +55,9 @@ const SKILL_ICON_MAP: Record<string, React.ComponentType<{ className?: string }>
   ownership: FiBriefcase,
   growth: FiTrendingUp,
   'problem-solving': FiTool,
+  ai: FiCpu,
+  brain: FiSearch,
+  workflow: FiTerminal,
 };
 
 const LevelBar = ({ level }: { level: SkillItem['level'] }) => (
@@ -96,19 +99,23 @@ const SkillCard = ({ skill, showLevel = true }: { skill: SkillItem; showLevel?: 
 
 const SkillsSection = () => {
   const [activeTab, setActiveTab] = useState<TabId>('hard');
-  const skills = activeTab === 'hard' ? skillsData.hardSkills : skillsData.softSkills;
-  const maxSkills =
-    skillsData.hardSkills.length >= skillsData.softSkills.length
-      ? skillsData.hardSkills
-      : skillsData.softSkills;
+  let skills = skillsData.hardSkills;
+  if (activeTab === 'soft') skills = skillsData.softSkills;
+  if (activeTab === 'ai') skills = skillsData.aiSkills;
 
   const handleKeyDown = (e: React.KeyboardEvent, tab: TabId) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       setActiveTab(tab);
     }
-    if (e.key === 'ArrowLeft') setActiveTab('hard');
-    if (e.key === 'ArrowRight') setActiveTab('soft');
+    if (e.key === 'ArrowLeft') {
+      if (activeTab === 'soft') setActiveTab('hard');
+      if (activeTab === 'ai') setActiveTab('soft');
+    }
+    if (e.key === 'ArrowRight') {
+      if (activeTab === 'hard') setActiveTab('soft');
+      if (activeTab === 'soft') setActiveTab('ai');
+    }
   };
 
   return (
@@ -117,7 +124,7 @@ const SkillsSection = () => {
         <SectionHeader label={skillsData.sectionLabel} title={skillsData.sectionTitle} />
 
         <div
-          className='flex gap-4 border-b border-border/50 pb-1'
+          className='grid w-full grid-cols-[0.8fr_1fr_1.2fr] gap-2 border-b border-border/50 pb-1 sm:flex sm:w-auto sm:gap-4'
           role='tablist'
           aria-label='Skills category'>
           <div className='relative'>
@@ -128,7 +135,9 @@ const SkillsSection = () => {
               tabIndex={activeTab === 'hard' ? 0 : -1}
               onClick={() => setActiveTab('hard')}
               onKeyDown={e => handleKeyDown(e, 'hard')}
-              className={`rounded-t px-6 py-3.5 text-base font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'hard' ? 'text-accent' : 'text-muted hover:text-text'}`}>
+              className={`w-full whitespace-nowrap rounded-t px-2 py-3 text-sm font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:px-6 sm:py-3.5 sm:text-base ${
+                activeTab === 'hard' ? 'text-accent' : 'text-muted hover:text-text'
+              }`}>
               My Skills
             </button>
             {activeTab === 'hard' && (
@@ -147,7 +156,9 @@ const SkillsSection = () => {
               tabIndex={activeTab === 'soft' ? 0 : -1}
               onClick={() => setActiveTab('soft')}
               onKeyDown={e => handleKeyDown(e, 'soft')}
-              className={`rounded-t px-6 py-3.5 text-base font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${activeTab === 'soft' ? 'text-accent' : 'text-muted hover:text-text'}`}>
+              className={`w-full whitespace-nowrap rounded-t px-2 py-3 text-sm font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:px-6 sm:py-3.5 sm:text-base ${
+                activeTab === 'soft' ? 'text-accent' : 'text-muted hover:text-text'
+              }`}>
               How I Work
             </button>
             {activeTab === 'soft' && (
@@ -158,14 +169,38 @@ const SkillsSection = () => {
               />
             )}
           </div>
+          <div className='relative'>
+            <button
+              type='button'
+              role='tab'
+              aria-selected={activeTab === 'ai'}
+              tabIndex={activeTab === 'ai' ? 0 : -1}
+              onClick={() => setActiveTab('ai')}
+              onKeyDown={e => handleKeyDown(e, 'ai')}
+              className={`w-full whitespace-nowrap rounded-t px-2 py-3 text-sm font-semibold tracking-wide transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface sm:px-6 sm:py-3.5 sm:text-base ${
+                activeTab === 'ai' ? 'text-accent' : 'text-muted hover:text-text'
+              }`}>
+              <span className='md:hidden'>Intelligent Dev</span>
+              <span className='hidden md:inline'>Intelligent Development</span>
+            </button>
+            {activeTab === 'ai' && (
+              <motion.div
+                layoutId='skills-tab-indicator'
+                className='absolute -bottom-[5px] left-0 right-0 h-[3px] rounded-t-sm bg-accent'
+                transition={springSoft}
+              />
+            )}
+          </div>
         </div>
 
         <div className='relative'>
-          <div className={`invisible ${GRID_CLASS}`} aria-hidden>
-            {maxSkills.map(skill => (
+          {/* Dynamic height placeholder */}
+          <div className={`${GRID_CLASS} invisible`} aria-hidden>
+            {skills.map(skill => (
               <SkillCard key={skill.id} skill={skill} showLevel={activeTab === 'hard'} />
             ))}
           </div>
+
           <div className='absolute inset-0'>
             <AnimatePresence mode='wait'>
               <StaggerChildren
@@ -180,6 +215,20 @@ const SkillsSection = () => {
             </AnimatePresence>
           </div>
         </div>
+
+        {activeTab === 'ai' && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className='mx-auto max-w-3xl pt-4 text-center text-xs leading-relaxed text-muted/60'>
+            <span className='font-medium text-muted/80'>Showcase:</span> This portfolio itself was designed
+            and implemented in 4 days by leveraging AI-driven workflows for boilerplate generation, manually
+            adjusting details and maintaining manual oversight over the entire flow and final quality.
+            <br /> <br />
+            <span>All text is manually written and edited by me.</span>
+          </motion.p>
+        )}
       </div>
     </SectionContainer>
   );

@@ -216,6 +216,32 @@ export const skillsData: SkillsData = {
       icon: 'team',
     },
   ],
+  aiSkills: [
+    {
+      id: 'ai-1',
+      title: 'AI-Synergy Development',
+      description:
+        'I leverage AI as a tool to accelerate boilerplate generation, refactor complex logic, and optimize code performance. I always do manual oversight over the entire flow.',
+      level: 3,
+      icon: 'ai',
+    },
+    {
+      id: 'ai-2',
+      title: 'Strategic AI Consultation',
+      description:
+        'I use AI as a technical consultant to brainstorm optimal solutions and agilize research, reducing the discovery phase for complex features and new technologies.',
+      level: 3,
+      icon: 'brain',
+    },
+    {
+      id: 'ai-3',
+      title: 'Workflow & Orchestration',
+      description:
+        'I design workflows that integrate AI to automate repetitive tasks—from unit tests to documentation—treating it as a controlled assistant that enhances my productivity without ever compromising code integrity.',
+      level: 3,
+      icon: 'workflow',
+    },
+  ],
 };
 
 export const contactData: ContactData = {
