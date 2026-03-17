@@ -120,11 +120,11 @@ export const skillsData: SkillsData = {
     },
     {
       id: 'hs-4',
-      title: 'Performance & SEO',
+      title: 'AI Integration & Vector Search',
       description:
-        'I strive for top-tier Performance & SEO scores while balancing high-quality output with efficient development cycles',
+        'OpenAI connections with vectorized data processes that create advanced semantic search and personalized summarization tools, turning raw data into intelligent, actionable insights.',
       level: 3,
-      icon: 'zap',
+      icon: 'settings',
     },
     {
       id: 'hs-5',
@@ -144,6 +144,14 @@ export const skillsData: SkillsData = {
     },
     {
       id: 'hs-7',
+      title: 'Performance & SEO',
+      description:
+        'I strive for top-tier Performance & SEO scores while balancing high-quality output with efficient development cycles',
+      level: 3,
+      icon: 'zap',
+    },
+    {
+      id: 'hs-8',
       title: 'Databases',
       description:
         'PostgreSQL is my core strength. I’ve built and managed multiple databases, ensuring data integrity and scalability at every step.',
@@ -151,7 +159,7 @@ export const skillsData: SkillsData = {
       icon: 'database',
     },
     {
-      id: 'hs-8',
+      id: 'hs-9',
       title: 'Other frameworks',
       description:
         'React.js is my core expertise, but I’m also proficient in Vue, Solid, Svelte, Astro and even pure JS with HTML.',
@@ -159,14 +167,14 @@ export const skillsData: SkillsData = {
       icon: 'vue',
     },
     {
-      id: 'hs-9',
+      id: 'hs-10',
       title: 'Testing',
       description: 'I prioritize reliability through quick testing, using tools like Vitest for unit tests.',
       level: 1,
       icon: 'testing',
     },
     {
-      id: 'hs-10',
+      id: 'hs-11',
       title: 'DevOps & CI/CD',
       description:
         'I manage automated deployment environments using Vercel and GitHub/GitLab, focusing on pre-configured pipelines for seamless and reliable production delivery.',

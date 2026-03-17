@@ -5,6 +5,7 @@ import ContactSection from './sections/Contact/ContactSection';
 import HeroSection from './sections/Hero/HeroSection';
 import SkillsSection from './sections/Skills/SkillsSection';
 import Navbar from './components/common/Navbar';
+import Footer from './components/common/Footer';
 
 const lenisOptions = { smoothWheel: true, lerp: 0.08, autoRaf: true };
 
@@ -43,6 +44,8 @@ const App = () => (
         <SkillsSection />
         <ContactSection />
       </div>
+      
+      <Footer />
     </main>
   </ReactLenis>
 );
