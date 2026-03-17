@@ -25,7 +25,7 @@ export const aboutExperienceData: AboutData = {
   aboutTitle: 'Know my work',
   aboutBody: [
     'My first professional role was at Sana, a healthcare startup, where I grew autonomously in a high-pressure ecosystem of constant context-switching.',
-    'After that, I moved into my current role at Litebox, where we work with several high profile clients with clear structures and organized workflows within large teams and complex systems.',
+    'Now I work with several high profile clients with clear structures and organized workflows within large teams and complex systems.',
     'I’ve learned to prioritize productivity without compromising quality, always seeking the most efficient path and avoiding unnecessary detours.',
   ],
   aboutImage: '/placeholders/about-profile-default.svg',
@@ -255,29 +255,29 @@ export const skillsData: SkillsData = {
 export const contactData: ContactData = {
   sectionTitle: 'Get in touch',
   sectionLead:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    "I'm always happy to talk about ideas and emerging projects. I'd love to make human connection and get to know your goals and priorities.",
   items: [
     {
       id: 'contact-email',
       type: 'email',
       label: 'Email',
-      value: 'lorem@ipsum.dev',
-      href: 'mailto:lorem@ipsum.dev',
-    },
-    {
-      id: 'contact-github',
-      type: 'github',
-      label: 'GitHub',
-      value: 'github.com/lorem-ipsum',
-      href: 'https://github.com/lorem-ipsum',
+      value: 'medinajp95@gmail.com',
+      href: 'mailto:medinajp95@gmail.com',
     },
     {
       id: 'contact-linkedin',
       type: 'linkedin',
       label: 'LinkedIn',
-      value: 'linkedin.com/in/lorem-ipsum',
-      href: 'https://linkedin.com/in/lorem-ipsum',
+      value: 'juan-pablo-medina-249799196/',
+      href: 'https://www.linkedin.com/in/juan-pablo-medina-249799196/',
     },
-    { id: 'contact-location', type: 'location', label: 'Location', value: 'Lorem City, Ipsum' },
+    {
+      id: 'contact-github',
+      type: 'github',
+      label: 'GitHub',
+      value: 'juanpablomedina-dev',
+      href: 'https://github.com/juanpablomedina-dev',
+    },
+    { id: 'contact-location', type: 'location', label: 'Location', value: 'Jujuy, Argentina' },
   ],
 };
