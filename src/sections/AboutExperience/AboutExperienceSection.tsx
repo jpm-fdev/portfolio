@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiBriefcase, FiClock, FiLayers } from 'react-icons/fi';
+import { FiClock, FiLayers } from 'react-icons/fi';
 import { aboutExperienceData } from '../../content/portfolioMock';
 import Pill from '../../components/common/Pill';
 import SectionContainer from '../../components/common/SectionContainer';
@@ -56,11 +56,13 @@ const AboutExperienceSection = () => (
                   className='h-36 w-full shrink-0 self-center rounded-xl border border-border/70 object-contain p-3 bg-surface/40 sm:h-48'
                 />
                 <div className='space-y-3'>
-                  <div className='flex flex-wrap items-center gap-3'>
-                    <Pill icon={<FiBriefcase />}>{experience.company}</Pill>
+                  <div className='flex flex-wrap items-start justify-between gap-3'>
+                    <h4 className='font-display text-xl leading-tight text-text font-semibold'>
+                      {experience.role}{' '}
+                      <span className='ml-[3px] text-accent font-medium'>@ {experience.company}</span>
+                    </h4>
                     <Pill icon={<FiClock />}>{experience.period}</Pill>
                   </div>
-                  <h4 className='font-display text-xl leading-tight text-text'>{experience.role}</h4>
                   <p className='text-sm leading-relaxed text-muted'>{experience.summary}</p>
 
                   {experience.achievements && experience.achievements.length > 0 && (
