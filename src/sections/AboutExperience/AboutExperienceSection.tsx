@@ -21,7 +21,7 @@ const AboutExperienceSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.55 }}
-          className='overflow-hidden rounded-2xl border border-border/70 bg-panel/70'>
+          className='order-2 lg:order-1 overflow-hidden rounded-2xl border border-border/70 bg-panel/70'>
           <img
             src={aboutExperienceData.aboutImage}
             alt={aboutExperienceData.aboutImageAlt}
@@ -31,7 +31,7 @@ const AboutExperienceSection = () => (
             <Pill icon={<FiLayers />}>About me</Pill>
             <div className='flex flex-col gap-4'>
               {aboutExperienceData.aboutBody.map((paragraph, index) => (
-                <p key={index} className='text-base leading-relaxed text-muted'>
+                <p key={index} className='text-[15px] md:text-base leading-relaxed text-muted'>
                   {paragraph}
                 </p>
               ))}
@@ -39,7 +39,7 @@ const AboutExperienceSection = () => (
           </div>
         </motion.article>
 
-        <div className='space-y-4'>
+        <div className='order-1 lg:order-2 space-y-4'>
           <SectionSubtitle title={aboutExperienceData.experienceTitle} />
           <div className='grid gap-4'>
             {aboutExperienceData.experiences.map(experience => (

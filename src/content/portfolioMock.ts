@@ -4,7 +4,7 @@ export const heroData: HeroData = {
   badge: 'Always creating and improving',
   title: 'Juan Pablo Medina, Fullstack Dev',
   description:
-    'Web systems developer focused on production with scalable technology. Always visible, proactive and independent. I love to face new challenges and produce quality features.',
+    'Web systems developer focused on production with scalable technology. Always visible, proactive and independent. New challenges welcome.',
   primaryCta: 'Get in touch',
   secondaryCta: 'View experience',
   tags: ['Product-focused', 'Self organized', 'DB manager', 'TS addict', 'AI solver'],
@@ -41,7 +41,7 @@ export const aboutExperienceData: AboutData = {
         'Participated or lead several projects of multiple types and challenges within large multi-role teams with structured workflows.',
       achievements: [
         'Fully developed an AI-powered Slack bot to collect and summarize daily standups for the whole company. Saves data, includes a RAG and exposes commands to view metrics and AI-processed insights.',
-        'Contributed to build several marketing sites with complex UI and motion side-to-side with designers.',
+        "Contributed to build several marketing sites with complex UI and motion side-to-side with designers, including the company's own site.",
         'Single-handledly lead a difficult-customer project to keep progress and satisfaction.',
         'Lead the implementation of a client Portal for invoices and metrics.',
       ],
