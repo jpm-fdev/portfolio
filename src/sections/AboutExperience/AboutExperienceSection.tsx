@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion';
 import { FiClock, FiLayers } from 'react-icons/fi';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import { aboutExperienceData } from '../../content/portfolioMock';
 import Pill from '../../components/common/Pill';
 import SectionContainer from '../../components/common/SectionContainer';
 import SectionHeader from '../../components/common/SectionHeader';
 import SectionSubtitle from '../../components/common/SectionSubtitle';
 
-const AboutExperienceSection = () => (
-  <SectionContainer id='experience-about' className='pb-20 md:pb-28'>
+const AboutExperienceSection = () => {
+  const isMobile = useIsMobile();
+  
+  return (
+    <SectionContainer id='experience-about' className='pb-20 md:pb-28'>
     <div className='space-y-10'>
       <SectionHeader
         label={aboutExperienceData.sectionTitle}
@@ -19,7 +23,7 @@ const AboutExperienceSection = () => (
         <motion.article
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: isMobile ? 0.05 : 0.25 }}
           transition={{ duration: 0.55 }}
           className='order-2 lg:order-1 overflow-hidden rounded-2xl border border-border/70 bg-panel/70'>
           <img
@@ -47,7 +51,7 @@ const AboutExperienceSection = () => (
                 key={experience.id}
                 initial={{ opacity: 0, x: 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
                 transition={{ duration: 0.45 }}
                 className='grid gap-4 rounded-2xl border border-border/70 bg-panel/70 p-4 sm:grid-cols-[10rem_1fr]'>
                 <img
@@ -104,7 +108,8 @@ const AboutExperienceSection = () => (
         </div>
       </div>
     </div>
-  </SectionContainer>
-);
+    </SectionContainer>
+  );
+};
 
 export default AboutExperienceSection;
