@@ -24,7 +24,7 @@ import {
 import { FaReact, FaVuejs } from 'react-icons/fa';
 import StaggerChildren from '../../components/motion/StaggerChildren';
 import { sectionStagger, springSoft, staggerItem } from '../../lib/motion';
-import { skillsData } from '../../content/portfolioMock';
+import { skillsData } from '../../content/skills';
 import SectionContainer from '../../components/common/SectionContainer';
 import SectionHeader from '../../components/common/SectionHeader';
 import type { SkillItem } from '../../types/portfolio';

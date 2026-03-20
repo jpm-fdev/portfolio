@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FiClock, FiLayers } from 'react-icons/fi';
 import { useIsMobile } from '../../hooks/useIsMobile';
-import { aboutExperienceData } from '../../content/portfolioMock';
+import { aboutExperienceData } from '../../content/aboutExperience';
 import Pill from '../../components/common/Pill';
 import SectionContainer from '../../components/common/SectionContainer';
 import SectionHeader from '../../components/common/SectionHeader';

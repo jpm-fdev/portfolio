@@ -4,7 +4,7 @@ import { FiArrowRight, FiZap } from 'react-icons/fi';
 import { SiTypescript } from 'react-icons/si';
 import StaggerChildren from '../../components/motion/StaggerChildren';
 import { heroStagger, springSoft, staggerItem } from '../../lib/motion';
-import { heroData } from '../../content/portfolioMock';
+import { heroData } from '../../content/hero';
 import SectionContainer from '../../components/common/SectionContainer';
 import { BiBrain } from 'react-icons/bi';
 import { FaList } from 'react-icons/fa';

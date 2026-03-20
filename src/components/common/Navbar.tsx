@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RiMenu4Line, RiCloseLine } from 'react-icons/ri';
+import { RiMenu4Line, RiCloseLine, RiGithubFill } from 'react-icons/ri';
 
 const NAV_LINKS = [
   { label: 'Top', href: '#top' },
@@ -92,6 +92,18 @@ const Navbar = () => {
                   <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-accent transition-all duration-300 ease-out group-hover:w-full" />
                 </motion.a>
               ))}
+              <motion.a
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.2 + NAV_LINKS.length * 0.1 }}
+                href="https://github.com/jpm-fdev/portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted hover:text-text transition-colors flex items-center justify-center ml-2"
+                aria-label="GitHub Repository"
+              >
+                <RiGithubFill size={22} className="hover:scale-110 transition-transform" />
+              </motion.a>
             </div>
 
             {/* Mobile Toggle Button */}
@@ -150,6 +162,21 @@ const Navbar = () => {
                   <span className="h-[2px] w-8 bg-accent/30 rounded-full" />
                 </motion.a>
               ))}
+              <motion.a
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: NAV_LINKS.length * 0.05 }}
+                href="https://github.com/jpm-fdev/portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-medium text-muted hover:text-text transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <RiGithubFill size={24} />
+                  <span>GitHub</span>
+                </div>
+                <span className="h-[2px] w-8 bg-accent/30 rounded-full" />
+              </motion.a>
             </div>
           </motion.div>
           </>

@@ -3,7 +3,7 @@ import { FiLinkedin, FiMail, FiMapPin, FiArrowUpRight } from 'react-icons/fi';
 import { SiGithub } from 'react-icons/si';
 import StaggerChildren from '../../components/motion/StaggerChildren';
 import { sectionStagger, springSoft, staggerItem } from '../../lib/motion';
-import { contactData } from '../../content/portfolioMock';
+import { contactData } from '../../content/contact';
 import SectionHeader from '../../components/common/SectionHeader';
 import type { ContactItem } from '../../types/portfolio';
 
