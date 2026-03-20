@@ -223,8 +223,9 @@ const SkillsSection = () => {
             transition={{ delay: 0.5 }}
             className='mx-auto max-w-3xl pt-4 text-center text-xs leading-relaxed text-muted/60'>
             <span className='font-medium text-muted/80'>Showcase:</span> This portfolio itself was designed
-            and implemented in 4 days by leveraging AI-driven workflows for boilerplate generation, manually
-            adjusting details and maintaining manual oversight over the entire flow and final quality.
+            and implemented in 4 net days by leveraging AI-driven workflows for boilerplate generation,
+            manually adjusting details and maintaining manual oversight over the entire flow and final
+            quality.
             <br /> <br />
             <span>All text is manually written and edited by me.</span>
           </motion.p>
