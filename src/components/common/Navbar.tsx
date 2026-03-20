@@ -22,6 +22,16 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
@@ -105,13 +115,26 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed inset-x-5 top-24 z-40 rounded-2xl bg-panel/95 p-6 backdrop-blur-xl border border-border shadow-glow md:hidden"
-          >
+          <>
+            {/* Backdrop to close on click outside */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            
+            {/* Menu Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="fixed inset-x-5 top-24 z-50 rounded-2xl bg-panel/95 p-6 backdrop-blur-xl border border-border shadow-glow md:hidden"
+            >
             <div className="flex flex-col gap-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.a
@@ -129,6 +152,7 @@ const Navbar = () => {
               ))}
             </div>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
